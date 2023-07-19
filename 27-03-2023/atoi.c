@@ -5,21 +5,31 @@
 int atoi(char str[]);
 int main()
 {
-	char str[10]="100";
-//	char str[10];
-//	scanf("%[^10\n]s",str);
+	//	char str[10]="100";
+	char str[10];
+	scanf("%10[^\n]s",str);
 	printf("Asic to integer :%d\n",atoi(str));
 }
 
 int atoi(char str[])
 {
-	int i,sum=0;
-
-	for(i=0;str[i]!='\0';i++)
+	int i=0,sum=0,sign=1;
+	
+	if(str[0]=='-')
 	{
-		sum=sum*10+str[i]-48;
+		sign=-1;
+		i++;
 	}
-	return sum;
 
+	for(;str[i]!='\0';i++)
+	{
+		if(str[i]>='0'&&str[i]<='9')
+			sum=sum*10+str[i]-48;
+		else
+		{
+			break;
+		}
+	}
+	return sum*sign;
 
 }
