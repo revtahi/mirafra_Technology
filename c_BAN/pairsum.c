@@ -1,4 +1,4 @@
-i/*1.Find a pair with the given sum in an array?*/
+/*1.Find a pair with the given sum in an array?*/
 
 #include <stdio.h>
 int findpair(int n,int a[],int t);
