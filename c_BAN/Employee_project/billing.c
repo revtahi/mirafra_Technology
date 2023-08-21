@@ -16,10 +16,30 @@ void Employee_details()
 
 	printf("Enter the user search id : ");
 	scanf("%s",s_id);
+	
+	int ch;
+	while(1)
+	{
+		printf("Search the employee =1 \n Delete the employee =2 \n Exit =3\n");
+		printf("Enter your choice:\n");
+		scanf("%d",&ch);
 
+		switch(ch)
+		{
+			case 1:
 
-	  Search_Employee(user_name,s_id) ;
-
+	  			Search_Employee(user_name,s_id) ;
+				break;
+			case 2:
+//				Delete_Employee(emp);
+				break;
+			default:
+				printf("\n\n Enter the right choice\n\n");
+				break;
+		}
+		if(ch==3)
+			break;
+	}
 }
 void Search_Employee(char* user_name ,char* s_id)
 {
@@ -28,15 +48,15 @@ void Search_Employee(char* user_name ,char* s_id)
 	{
 		if(!(strcmp(temp->name,user_name)))
 		{
-			if(!(strcmp(temp->address,s_id)))
+			if(!(strcmp(temp->id,s_id)))
 			{
 				printf("#########Employee details found#########\n");
-				return temp;
+				//return temp;
 			}
 			else
 			{
 				printf("######### Employee details not found ######\n");
-				return 0;
+				//return 0;
 
 			}
 
@@ -44,7 +64,7 @@ void Search_Employee(char* user_name ,char* s_id)
 		temp=temp->Next;
 	}
 	while(temp->Next != NULL);
-	printf("####### wrong Employee Naame ########\n");
+	printf("####### wrong Employee Name ########\n");
 //	return 0;
 }
 

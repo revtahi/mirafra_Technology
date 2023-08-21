@@ -9,6 +9,7 @@ typedef struct Emp {
     char dob[20];
     char gender[10];
     char address[100];
+    float salary;
     float basicSalary;
     float hra;
     float specialAllowance;

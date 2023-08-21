@@ -11,7 +11,7 @@ int main()
 		printf("\n##########  Employee billing System ########## \n");
 		printf("\nEXIT = 5 \n Permanent Employee  = 1 \n Contractual Employee = 2 \n ");
 		printf("Short Term Employee = 3\n");
-		printf("Delete Employee = 4\n");
+		printf("Employee Details= 4\n");
 		printf("Enter your chice:\n");
 		scanf("%d", &ch); 
 
