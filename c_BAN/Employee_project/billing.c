@@ -32,6 +32,7 @@ void Employee_details()
 				break;
 			case 2:
 //				Delete_Employee(emp);
+				Delete_Employee();
 				break;
 			default:
 				printf("\n\n Enter the right choice\n\n");
