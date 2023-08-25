@@ -5,7 +5,7 @@
 
 employee *head;
 void Delete_Employee(employee *emp);
-void Search_Employee(char* user_name ,char* s_id);
+employee* Search_Employee(char* user_name ,char* s_id);
 void Employee_details()
 {
 	char user_name[20] ;
@@ -16,7 +16,7 @@ void Employee_details()
 
 	printf("Enter the user search id : ");
 	scanf("%s",s_id);
-	
+
 	int ch;
 	while(1)
 	{
@@ -28,11 +28,12 @@ void Employee_details()
 		{
 			case 1:
 
-	  			Search_Employee(user_name,s_id) ;
+				Search_Employee(user_name,s_id) ;
 				break;
 			case 2:
 //				Delete_Employee(emp);
-				Delete_Employee();
+				//				Delete_Employee();
+				Delete_Employee(Search_Employee(user_name, s_id));
 				break;
 			default:
 				printf("\n\n Enter the right choice\n\n");
@@ -41,32 +42,31 @@ void Employee_details()
 		if(ch==3)
 			break;
 	}
+
 }
-void Search_Employee(char* user_name ,char* s_id)
+employee* Search_Employee(char* user_name ,char* s_id)
 {
 	employee *temp = head;
-	do
+	while(temp!=NULL)
 	{
-		if(!(strcmp(temp->name,user_name)))
+		if (!strcmp(temp->name, user_name) && !strcmp(temp->id, s_id))
 		{
-			if(!(strcmp(temp->id,s_id)))
-			{
-				printf("#########Employee details found#########\n");
-				//return temp;
-			}
-			else
-			{
-				printf("######### Employee details not found ######\n");
-				//return 0;
-
-			}
+			printf("######### Employee details found #########\n");
+			return temp;
+		}
+		else
+		{
+			printf("######### Employee details not found ######\n");
+			return 0;
 
 		}
-		temp=temp->Next;
+
 	}
-	while(temp->Next != NULL);
-	printf("####### wrong Employee Name ########\n");
-//	return 0;
+	temp=temp->Next;
+
+
+printf("####### wrong Employee Name ########\n");
+return 0;
 }
 
 void Delete_Employee(employee *emp) {
