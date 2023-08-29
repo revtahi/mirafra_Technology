@@ -58,6 +58,41 @@ student *lastnode(student *Head)
 	return Head;
 }
 
+student *middlenode(student *Head)
+{
+	student *temp = Head;
+	student *ptr3 = (student *)malloc(sizeof(student));
+	printf("Adding middle node. Enter the id, name:\n");
+	scanf("%d %s", &ptr3->id, ptr3->name);
+	int pos,i;
+	printf("Enter the position:\n");
+	scanf("%d", &pos);
+
+	if (pos <= 1) // Insert at the beginning
+	{
+		ptr3->next = Head;
+		Head = ptr3;
+	}
+	else
+	{
+		for(i = 0; i < pos - 2 && temp != NULL; i++)
+			temp = temp->next;
+
+		if (temp != NULL)
+		{
+			ptr3->next = temp->next;
+			temp->next = ptr3;
+		}
+		else
+		{
+			printf("Invalid position\n");
+			free(ptr3); // Release memory if not used
+		}
+	}
+
+	return Head;
+}
+
 int main() {
 	student *Head = NULL, *s = NULL, *last = NULL;
 	char ch;
@@ -83,12 +118,13 @@ int main() {
 			break;
 	}
 
-	Head = insertingnode(Head);
+	//	Head = insertingnode(Head);
 	print_ll(Head);
 
-	Head = lastnode(Head);
+	//	Head = lastnode(Head);
+	//	print_ll(Head);
+	Head=middlenode(Head);
 	print_ll(Head);
 
 	return 0;
 }
-
